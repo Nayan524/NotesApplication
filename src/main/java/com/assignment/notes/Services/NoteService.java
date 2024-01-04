@@ -27,4 +27,19 @@ public class NoteService {
         repository.save(note);
     }
 
+    public Note getNote(int id) {
+        return repository.findById(id).get();
+    }
+
+    public void update(int id, Note note) {
+        Note existingNote = repository.findById(id).get();
+        existingNote.setDescription(note.getDescription());
+        repository.save(existingNote);
+
+    }
+
+    public void delete(int id) {
+        repository.deleteById(id);
+    }
+
 }
