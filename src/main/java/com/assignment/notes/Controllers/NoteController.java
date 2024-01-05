@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 
@@ -19,29 +20,33 @@ public class NoteController {
     @Autowired
     private NoteService service;
 
-    @GetMapping("{username}/api/notes")
-    public List<Note> getNotes(@PathVariable String username) {
-        return service.getNotes(username);
+    @GetMapping("api/notes")
+    public List<Note> getNotes() {
+        return service.getNotes();
     }
 
-    @PostMapping("{username}/api/notes")
-    public void addNotes(@RequestBody Note note, @PathVariable String username) {
-        service.addNote(note, username);
-    }
+    /*
+     * @GetMapping("{username}/api/notes/{id}")
+     * public Note getNote(@PathVariable int id) {
+     * return service.getNote(id);
+     * }
+     * 
+     * @PutMapping("{username}/api/notes/{id}")
+     * public void update(@PathVariable int id, @RequestBody Note note) {
+     * service.update(id, note);
+     * }
+     * 
+     * @DeleteMapping("{username}/api/notes/{id}")
+     * public void deleteById(@PathVariable int id) {
+     * service.delete(id);
+     * }
+     */
 
-    @GetMapping("{username}/api/notes/{id}")
-    public Note getNote(@PathVariable int id) {
-        return service.getNote(id);
-    }
-
-    @PutMapping("{username}/api/notes/{id}")
-    public void update(@PathVariable int id, @RequestBody Note note) {
-        service.update(id, note);
-    }
-
-    @DeleteMapping("{username}/api/notes/{id}")
-    public void deleteById(@PathVariable int id) {
-        service.delete(id);
-    }
+    /*
+     * public List<Note> search(@PathVariable String username, @RequestParam("q")
+     * String search) {
+     * return service.findNotes(username, search);
+     * }
+     */
 
 }

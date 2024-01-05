@@ -1,9 +1,12 @@
 package com.assignment.notes.Repositories;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import com.assignment.notes.Entities.Note;
-import java.util.*;
+import java.util.List;
 
-public interface NoteRepository extends JpaRepository<Note, Integer> {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.assignment.notes.Entities.Note;
+import com.assignment.notes.Entities.Users;
+
+public interface UserRepository extends JpaRepository<Users, Integer> {
 
 }

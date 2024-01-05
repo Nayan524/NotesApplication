@@ -5,8 +5,10 @@ import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Note {
@@ -15,8 +17,9 @@ public class Note {
     @GeneratedValue
     private int Id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    private String username;
+    private Users username;
 
     @JsonIgnore
     private LocalDate targetDate;
@@ -27,7 +30,7 @@ public class Note {
 
     }
 
-    public Note(int id, String username, LocalDate targetDate, String description) {
+    public Note(int id, Users username, LocalDate targetDate, String description) {
         Id = id;
         this.username = username;
         this.targetDate = targetDate;
@@ -42,11 +45,11 @@ public class Note {
         Id = id;
     }
 
-    public String getUsername() {
+    public Users getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(Users username) {
         this.username = username;
     }
 
