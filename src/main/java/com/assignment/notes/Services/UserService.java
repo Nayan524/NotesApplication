@@ -40,8 +40,6 @@ public class UserService {
     public List<Note> getNotes1(int id) {
 
         Users u = repository.findById(id).get();
-        // System.out.println("--------------------------------------------" +
-        // u.getNotes().get(0));
         return u.getNotes();
     }
 
@@ -50,7 +48,6 @@ public class UserService {
         note.setUsername(u);
         note.setTargetDate(LocalDate.now());
         nrepo.save(note);
-        // repository.save(u);
     }
 
 }

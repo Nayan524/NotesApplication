@@ -47,7 +47,6 @@ public class UserController {
 
     @PostMapping("user/{id}/create-note")
     public void addNotes(@RequestBody Note note, @PathVariable int id) {
-        System.out.println("----------------------------HELLLOOOO-------------------");
         service.addNoteForUser(note, id);
     }
 

@@ -19,7 +19,35 @@ public class Users {
     private int Id;
 
     private String username;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     private LocalDate birthDate;
+    private String email;
+    private String role;
+    private String password;
     private String mobileNumber;
 
     @OneToMany(mappedBy = "username")
@@ -34,6 +62,18 @@ public class Users {
         Id = id;
         this.username = username;
         this.birthDate = birthDate;
+        this.mobileNumber = mobileNumber;
+        this.notes = notes;
+    }
+
+    public Users(int id, String username, LocalDate birthDate, String email, String role, String password,
+            String mobileNumber, List<Note> notes) {
+        Id = id;
+        this.username = username;
+        this.birthDate = birthDate;
+        this.email = email;
+        this.role = role;
+        this.password = password;
         this.mobileNumber = mobileNumber;
         this.notes = notes;
     }
