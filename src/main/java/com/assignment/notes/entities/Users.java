@@ -1,11 +1,8 @@
-package com.assignment.notes.Entities;
+package com.assignment.notes.entities;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.*;
 
@@ -50,7 +47,7 @@ public class Users {
     private String password;
     private String mobileNumber;
 
-    @OneToMany(mappedBy = "username")
+    @OneToMany(mappedBy = "username",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Note> notes;
 
@@ -58,16 +55,10 @@ public class Users {
 
     }
 
-    public Users(int id, String username, LocalDate birthDate, String mobileNumber, List<Note> notes) {
-        Id = id;
-        this.username = username;
-        this.birthDate = birthDate;
-        this.mobileNumber = mobileNumber;
-        this.notes = notes;
-    }
+
 
     public Users(int id, String username, LocalDate birthDate, String email, String role, String password,
-            String mobileNumber, List<Note> notes) {
+                 String mobileNumber, List<Note> notes) {
         Id = id;
         this.username = username;
         this.birthDate = birthDate;

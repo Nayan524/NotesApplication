@@ -1,11 +1,10 @@
-package com.assignment.notes.Entities;
+package com.assignment.notes.entities;
 
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
@@ -17,7 +16,7 @@ public class Note {
     @GeneratedValue
     private int Id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JsonIgnore
     private Users username;
 

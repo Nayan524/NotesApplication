@@ -1,17 +1,13 @@
-package com.assignment.notes.Services;
+package com.assignment.notes.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.*;
 
-import com.assignment.notes.Entities.Note;
-import com.assignment.notes.Entities.Users;
-import com.assignment.notes.Repositories.NoteRepository;
-import com.assignment.notes.Repositories.UserRepository;
-
-import java.util.function.Predicate;
+import com.assignment.notes.entities.Note;
+import com.assignment.notes.repositories.NoteRepository;
+import com.assignment.notes.repositories.UserRepository;
 
 @Service
 public class NoteService {
