@@ -57,6 +57,12 @@ public class UserController {
     public void updateNoteForUser(@PathVariable int userId,@PathVariable int noteId,@RequestBody Note newNote) throws IllegalAccessException {
         service.updateNote(userId,noteId,newNote);
     }
+    @DeleteMapping("user/{userId}/delete-note/{noteId}")
+    public void deleteNoteForUser(@PathVariable int userId, @PathVariable int noteId){
+        service.deleteNoteForUser(userId,noteId);
+    }
+
+
 
 
 

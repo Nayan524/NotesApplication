@@ -77,8 +77,17 @@ public class UserService {
         repository.save(user);
         nrepo.save(existingNote);
 
+    }
 
+    public void deleteNoteForUser(int userId,int noteId){
+        Users user = repository.findById(userId).get();
+        Note existingNote = null;
+        Predicate<? super Note> predicate = note -> note.getId()==noteId;
+        existingNote = user.getNotes().stream().filter(predicate).findFirst().get();
 
+        user.getNotes().remove(existingNote);
+        repository.save(user);
+        nrepo.deleteById(noteId);
     }
 
 }
