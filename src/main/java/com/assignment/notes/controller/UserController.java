@@ -1,6 +1,5 @@
 package com.assignment.notes.controller;
 
-import com.assignment.notes.model.UserPatcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,6 +52,13 @@ public class UserController {
     public void updateUser(@PathVariable int id, @RequestBody Users user){
         service.update(id,user);
     }
+
+    @PatchMapping("user/{userId}/update-note/{noteId}")
+    public void updateNoteForUser(@PathVariable int userId,@PathVariable int noteId,@RequestBody Note newNote) throws IllegalAccessException {
+        service.updateNote(userId,noteId,newNote);
+    }
+
+
 
 }
 

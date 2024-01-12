@@ -20,7 +20,6 @@ public class Note {
     @JsonIgnore
     private Users username;
 
-    @JsonIgnore
     private LocalDate targetDate;
 
     private String description;

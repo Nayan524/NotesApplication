@@ -1,11 +1,12 @@
 package com.assignment.notes.services;
 
-import com.assignment.notes.model.UserPatcher;
+import com.assignment.notes.model.Patcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.function.Predicate;
 
 import com.assignment.notes.entities.Note;
 import com.assignment.notes.entities.Users;
@@ -22,7 +23,7 @@ public class UserService {
     private NoteRepository nrepo;
 
     @Autowired
-    private UserPatcher patcher;
+    private Patcher patcher;
 
     public List<Users> getAllUsers() {
         return repository.findAll();
@@ -49,7 +50,6 @@ public class UserService {
     public void addNoteForUser(Note note, int id) {
         Users u = repository.findById(id).get();
         note.setUsername(u);
-        note.setTargetDate(LocalDate.now());
         nrepo.save(note);
     }
 
@@ -65,6 +65,20 @@ public class UserService {
         }catch(Exception e){
             System.out.println(e);
         }
+    }
+
+    public void updateNote(int userId,int noteId,Note newNote) throws IllegalAccessException {
+        Users user = repository.findById(userId).get();
+        Note existingNote = null;
+        Predicate<? super Note> predicate = note -> note.getId()==noteId;
+        existingNote = user.getNotes().stream().filter(predicate).findFirst().get();
+        patcher.updateNote(existingNote,newNote);
+
+        repository.save(user);
+        nrepo.save(existingNote);
+
+
+
     }
 
 }
