@@ -6,9 +6,13 @@ A simple and user-friendly Notes Application that allows users to create, update
 
 ✨ Features
 ➕ Create new notes with title and content
+
 ✏️ Edit existing notes
+
 🗑️ Delete notes with confirmation
+
 💾 Persistent storage (local/database)
+
 ⚡ Fast and responsive UI
 
 🧠 Tech Stack
