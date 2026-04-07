@@ -16,6 +16,9 @@ A simple and user-friendly Notes Application that allows users to create, update
 ⚡ Fast and responsive UI
 
 🧠 Tech Stack
+
 ⚙️ Backend: (Java Spring Boot)
+
 🗄️ Storage: (MySQL)
+
 🛠️ Tools: Git, GitHub
