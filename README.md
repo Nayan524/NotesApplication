@@ -1,4 +1,5 @@
 📝 Notes Application
+
 🚀 Overview
 
 A simple and user-friendly Notes Application that allows users to create, update, and delete notes efficiently. The app focuses on clean UI, smooth user experience, and reliable local data persistence.
